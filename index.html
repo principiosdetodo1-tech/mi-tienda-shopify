@@ -30,7 +30,6 @@
             line-height: 1.6;
         }
 
-        /* Animated Background */
         .bg-gradient {
             position: fixed;
             top: 0;
@@ -61,16 +60,15 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
         }
 
-        /* Header */
         header {
-            padding: 30px 0;
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(10, 10, 15, 0.8);
+            background: rgba(10, 10, 15, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             animation: slideDown 0.6s ease;
@@ -81,8 +79,16 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
         .logo {
-            font-size: 28px;
+            font-size: clamp(20px, 4vw, 28px);
             font-weight: 900;
             background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
             -webkit-background-clip: text;
@@ -90,31 +96,44 @@
             background-clip: text;
             letter-spacing: -1px;
             text-transform: uppercase;
-            position: relative;
-            display: inline-block;
         }
 
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+        .lang-switcher {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px 16px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
         }
 
-        .logo:hover::after {
-            transform: scaleX(1);
+        .lang-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
         }
 
-        /* Hero Section */
+        .lang-btn:hover {
+            color: var(--primary);
+            background: rgba(0, 240, 255, 0.1);
+        }
+
+        .lang-btn.active {
+            color: #000;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
         .hero {
-            padding: 120px 0 80px;
+            padding: clamp(60px, 10vw, 120px) 0 clamp(40px, 8vw, 80px);
             text-align: center;
-            position: relative;
             animation: fadeInUp 1s ease;
         }
 
@@ -129,7 +148,7 @@
             background: rgba(0, 240, 255, 0.1);
             border: 1px solid rgba(0, 240, 255, 0.3);
             border-radius: 50px;
-            font-size: 13px;
+            font-size: clamp(11px, 2vw, 13px);
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -143,9 +162,9 @@
         }
 
         .hero h1 {
-            font-size: clamp(40px, 7vw, 86px);
+            font-size: clamp(32px, 7vw, 86px);
             font-weight: 900;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.1;
             letter-spacing: -2px;
             background: linear-gradient(135deg, #ffffff 0%, var(--primary) 50%, var(--secondary) 100%);
@@ -156,14 +175,15 @@
         }
 
         .hero p {
-            font-size: clamp(18px, 2.5vw, 24px);
+            font-size: clamp(16px, 2.5vw, 24px);
             color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 400;
             animation: fadeInUp 1s ease 0.4s backwards;
+            padding: 0 15px;
         }
 
         .highlight {
@@ -172,10 +192,8 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 700;
-            position: relative;
         }
 
-        /* Glass Card Effect */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
@@ -209,33 +227,33 @@
             box-shadow: 0 20px 60px rgba(0, 240, 255, 0.2);
         }
 
-        /* Comparison Section */
-        .comparison {
-            padding: 100px 0;
+        .section {
+            padding: clamp(60px, 10vw, 100px) 0;
             position: relative;
         }
 
         .section-title {
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: clamp(28px, 5vw, 56px);
             font-weight: 900;
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: clamp(40px, 7vw, 70px);
             letter-spacing: -1px;
             background: linear-gradient(135deg, #ffffff, var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            padding: 0 15px;
         }
 
         .comparison-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(20px, 3vw, 30px);
             margin-bottom: 40px;
         }
 
         .comparison-item {
-            padding: 40px 30px;
+            padding: clamp(30px, 5vw, 40px) clamp(20px, 4vw, 30px);
             transition: all 0.4s ease;
             position: relative;
         }
@@ -248,37 +266,36 @@
         .comparison-item.bad::after {
             content: '×';
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
+            top: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
             background: rgba(255, 0, 110, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 20px;
             color: var(--secondary);
         }
 
         .comparison-item.good {
-            transform: scale(1.05);
             animation: glowPulse 3s ease infinite;
         }
 
         .comparison-item.good::after {
             content: '✓';
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
+            top: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
             background: rgba(0, 240, 255, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             color: var(--primary);
             font-weight: 900;
         }
@@ -289,30 +306,30 @@
         }
 
         .comparison-item h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: clamp(20px, 3vw, 24px);
+            margin-bottom: 15px;
             font-weight: 700;
         }
 
         .comparison-item .price {
-            font-size: 48px;
+            font-size: clamp(36px, 6vw, 48px);
             font-weight: 900;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .comparison-item ul {
             list-style: none;
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
         .comparison-item ul li {
-            padding: 12px 0;
+            padding: 10px 0;
             color: rgba(255, 255, 255, 0.6);
-            font-size: 15px;
+            font-size: clamp(14px, 2vw, 15px);
             position: relative;
             padding-left: 25px;
         }
@@ -324,24 +341,17 @@
             color: rgba(255, 255, 255, 0.3);
         }
 
-        /* Pricing Section */
-        .pricing {
-            padding: 100px 0;
-            position: relative;
-            overflow: visible;
-        }
-
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+            gap: clamp(30px, 5vw, 50px);
             max-width: 1100px;
             margin: 0 auto;
             padding-top: 30px;
         }
 
         .pricing-card {
-            padding: 50px 40px;
+            padding: clamp(35px, 6vw, 50px) clamp(25px, 5vw, 40px);
             position: relative;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: visible;
@@ -366,7 +376,6 @@
         }
 
         .pricing-card.featured {
-            transform: scale(1.08);
             background: rgba(0, 240, 255, 0.03);
         }
 
@@ -383,7 +392,7 @@
             color: #000;
             padding: 12px 35px;
             border-radius: 50px;
-            font-size: 12px;
+            font-size: clamp(10px, 2vw, 12px);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -399,27 +408,28 @@
         }
 
         .pricing-card h3 {
-            font-size: 32px;
+            font-size: clamp(24px, 4vw, 32px);
             margin-bottom: 15px;
             font-weight: 800;
         }
 
         .pricing-card .price {
-            font-size: 72px;
+            font-size: clamp(48px, 8vw, 72px);
             font-weight: 900;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 25px 0;
+            margin: 20px 0;
             line-height: 1;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .pricing-card .price span {
-            font-size: 36px;
+            font-size: clamp(24px, 4vw, 36px);
             color: rgba(255, 255, 255, 0.4);
             text-decoration: line-through;
             background: none;
@@ -429,14 +439,14 @@
 
         .pricing-card ul {
             list-style: none;
-            margin: 40px 0;
+            margin: 30px 0;
         }
 
         .pricing-card ul li {
-            padding: 16px 0;
+            padding: 14px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             color: rgba(255, 255, 255, 0.8);
-            font-size: 16px;
+            font-size: clamp(14px, 2vw, 16px);
             position: relative;
             padding-left: 35px;
             transition: all 0.3s ease;
@@ -456,22 +466,21 @@
             font-size: 18px;
         }
 
-        /* CTA Button */
         .cta-button {
             display: block;
             width: 100%;
-            padding: 22px 40px;
+            padding: clamp(18px, 3vw, 22px) 40px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #000;
             border: none;
             border-radius: 16px;
-            font-size: 18px;
+            font-size: clamp(16px, 2.5vw, 18px);
             font-weight: 800;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
             text-decoration: none;
-            margin-top: 30px;
+            margin-top: 25px;
             position: relative;
             overflow: hidden;
             letter-spacing: 0.5px;
@@ -505,21 +514,15 @@
             z-index: 1;
         }
 
-        /* Features Section */
-        .features {
-            padding: 120px 0;
-            position: relative;
-        }
-
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: clamp(25px, 4vw, 40px);
         }
 
         .feature-item {
             text-align: center;
-            padding: 40px 30px;
+            padding: clamp(30px, 5vw, 40px) clamp(20px, 4vw, 30px);
             transition: transform 0.4s ease;
         }
 
@@ -528,8 +531,8 @@
         }
 
         .feature-icon {
-            font-size: 64px;
-            margin-bottom: 25px;
+            font-size: clamp(48px, 8vw, 64px);
+            margin-bottom: 20px;
             display: inline-block;
             animation: float 3s ease infinite;
         }
@@ -539,33 +542,26 @@
             50% { transform: translateY(-10px); }
         }
 
-        .feature-item:nth-child(1) .feature-icon { animation-delay: 0s; }
-        .feature-item:nth-child(2) .feature-icon { animation-delay: 0.2s; }
-        .feature-item:nth-child(3) .feature-icon { animation-delay: 0.4s; }
-        .feature-item:nth-child(4) .feature-icon { animation-delay: 0.6s; }
-
         .feature-item h3 {
-            font-size: 26px;
-            margin-bottom: 15px;
+            font-size: clamp(20px, 3vw, 26px);
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .feature-item p {
             color: rgba(255, 255, 255, 0.6);
-            font-size: 16px;
+            font-size: clamp(14px, 2vw, 16px);
             line-height: 1.7;
         }
 
-        /* FAQ Section */
         .faq {
-            padding: 100px 0;
             max-width: 900px;
             margin: 0 auto;
         }
 
         .faq-item {
-            padding: 35px 40px;
-            margin-bottom: 25px;
+            padding: clamp(25px, 4vw, 35px) clamp(25px, 4vw, 40px);
+            margin-bottom: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -575,8 +571,8 @@
         }
 
         .faq-item h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
+            font-size: clamp(18px, 3vw, 22px);
+            margin-bottom: 12px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -587,67 +583,47 @@
         .faq-item p {
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.8;
-            font-size: 16px;
+            font-size: clamp(14px, 2vw, 16px);
         }
 
-        /* Final CTA */
-        .final-cta {
-            padding: 120px 0;
-            text-align: center;
-        }
-
-        .final-cta h2 {
-            font-size: clamp(32px, 5vw, 52px);
-            margin-bottom: 25px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #ffffff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Footer */
         footer {
             text-align: center;
-            padding: 60px 0;
+            padding: 50px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: rgba(255, 255, 255, 0.4);
         }
 
         footer p {
-            font-size: 14px;
+            font-size: clamp(12px, 2vw, 14px);
+            margin: 5px 0;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .pricing-grid, .comparison-grid {
-                grid-template-columns: 1fr;
-            }
-
             .pricing-card.featured {
                 transform: scale(1);
             }
-
             .comparison-item.good {
                 transform: scale(1);
             }
+            .pricing-grid, .comparison-grid {
+                gap: 20px;
+            }
+            .lang-switcher {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
+        @media (max-width: 480px) {
+            .hero h1 br {
+                display: none;
+            }
+            .pricing-card .price {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
         }
-
-        .fade-in:nth-child(1) { animation-delay: 0.1s; }
-        .fade-in:nth-child(2) { animation-delay: 0.2s; }
-        .fade-in:nth-child(3) { animation-delay: 0.3s; }
-        .fade-in:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
@@ -655,226 +631,398 @@
 
     <header>
         <div class="container">
-            <div class="logo">Pro Kit Shopify</div>
+            <div class="header-content">
+                <div class="logo">Pro Kit Shopify</div>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">✨ El Futuro del E-commerce</div>
-            <h1>Diseña Tu Tienda Shopify<br>Sin Límites Ni Dependencias</h1>
-            <p>Códigos Liquid profesionales + Masterclass IA exclusiva para crear <span class="highlight">la tienda de tus sueños</span> con control total</p>
+            <div class="hero-badge" data-i18n="hero-badge">✨ El Futuro del E-commerce</div>
+            <h1 data-i18n="hero-title">Diseña Tu Tienda Shopify<br>Sin Límites Ni Dependencias</h1>
+            <p data-i18n="hero-subtitle">Códigos Liquid profesionales + Masterclass IA exclusiva para crear <span class="highlight">la tienda de tus sueños</span> con control total</p>
         </div>
     </section>
 
-    <section class="comparison">
+    <section class="section">
         <div class="container">
-            <h2 class="section-title">La Inversión Más Inteligente</h2>
+            <h2 class="section-title" data-i18n="comparison-title">La Inversión Más Inteligente</h2>
             <div class="comparison-grid">
-                <div class="comparison-item glass-card bad fade-in">
-                    <h3>Diseñador Freelance</h3>
+                <div class="comparison-item glass-card bad">
+                    <h3 data-i18n="comp1-title">Diseñador Freelance</h3>
                     <div class="price">€1500</div>
                     <ul>
-                        <li>Semanas de espera</li>
-                        <li>Sin acceso al código</li>
-                        <li>Cada cambio cuesta más</li>
-                        <li>Dependencia total</li>
-                        <li>Sin aprendizaje</li>
+                        <li data-i18n="comp1-1">Semanas de espera</li>
+                        <li data-i18n="comp1-2">Sin acceso al código</li>
+                        <li data-i18n="comp1-3">Cada cambio cuesta más</li>
+                        <li data-i18n="comp1-4">Dependencia total</li>
+                        <li data-i18n="comp1-5">Sin aprendizaje</li>
                     </ul>
                 </div>
-
-                <div class="comparison-item glass-card bad fade-in">
-                    <h3>Theme Premium</h3>
+                <div class="comparison-item glass-card bad">
+                    <h3 data-i18n="comp2-title">Theme Premium</h3>
                     <div class="price">€300</div>
                     <ul>
-                        <li>Diseño genérico usado por miles</li>
-                        <li>Personalización muy limitada</li>
-                        <li>No aprendes nada útil</li>
-                        <li>Actualizaciones rompen todo</li>
-                        <li>Zero diferenciación</li>
+                        <li data-i18n="comp2-1">Diseño genérico usado por miles</li>
+                        <li data-i18n="comp2-2">Personalización muy limitada</li>
+                        <li data-i18n="comp2-3">No aprendes nada útil</li>
+                        <li data-i18n="comp2-4">Actualizaciones rompen todo</li>
+                        <li data-i18n="comp2-5">Zero diferenciación</li>
                     </ul>
                 </div>
-
-                <div class="comparison-item glass-card bad fade-in">
-                    <h3>Agencia Digital</h3>
+                <div class="comparison-item glass-card bad">
+                    <h3 data-i18n="comp3-title">Agencia Digital</h3>
                     <div class="price">€3000+</div>
                     <ul>
-                        <li>Completamente inaccesible</li>
-                        <li>Meses de desarrollo</li>
-                        <li>Contratos interminables</li>
-                        <li>Pagos mensuales eternos</li>
-                        <li>Reuniones sin fin</li>
+                        <li data-i18n="comp3-1">Completamente inaccesible</li>
+                        <li data-i18n="comp3-2">Meses de desarrollo</li>
+                        <li data-i18n="comp3-3">Contratos interminables</li>
+                        <li data-i18n="comp3-4">Pagos mensuales eternos</li>
+                        <li data-i18n="comp3-5">Reuniones sin fin</li>
                     </ul>
                 </div>
-
-                <div class="comparison-item glass-card good fade-in">
-                    <h3>Pro Kit + Masterclass</h3>
+                <div class="comparison-item glass-card good">
+                    <h3 data-i18n="comp4-title">Pro Kit + Masterclass</h3>
                     <div class="price">€57</div>
                     <ul>
-                        <li>Control absoluto del diseño</li>
-                        <li>Personalización infinita con IA</li>
-                        <li>Implementación en minutos</li>
-                        <li>Pago único, tuyo para siempre</li>
-                        <li>Aprende el sistema completo</li>
+                        <li data-i18n="comp4-1">Control absoluto del diseño</li>
+                        <li data-i18n="comp4-2">Personalización infinita con IA</li>
+                        <li data-i18n="comp4-3">Implementación en minutos</li>
+                        <li data-i18n="comp4-4">Pago único, tuyo para siempre</li>
+                        <li data-i18n="comp4-5">Aprende el sistema completo</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="pricing">
+<section class="section">
         <div class="container" style="overflow: visible;">
-            <h2 class="section-title">Elige Tu Transformación</h2>
+            <h2 class="section-title" data-i18n="pricing-title">Elige Tu Transformación</h2>
             <div class="pricing-grid">
                 <div class="pricing-card glass-card">
-                    <h3>Pro Kit</h3>
+                    <h3 data-i18n="pack1-title">Pro Kit</h3>
                     <div class="price">€37</div>
                     <ul>
-                        <li>Pack completo de códigos Liquid</li>
-                        <li>Sections optimizadas para conversión</li>
-                        <li>Tutorial paso a paso detallado</li>
-                        <li>Personaliza tu tienda a tu gusto</li>
-                        <li>Acceso y actualizaciones de por vida</li>
-                        <li>Soporte por email incluido</li>
+                        <li data-i18n="pack1-feat1">Pack completo de códigos Liquid</li>
+                        <li data-i18n="pack1-feat2">Sections optimizadas para conversión</li>
+                        <li data-i18n="pack1-feat3">Tutorial paso a paso detallado</li>
+                        <li data-i18n="pack1-feat4">Personaliza tu tienda a tu gusto</li>
+                        <li data-i18n="pack1-feat5">Acceso y actualizaciones de por vida</li>
+                        <li data-i18n="pack1-feat6">Soporte por email incluido</li>
                     </ul>
-                    <a href="https://buy.stripe.com/TU-LINK-PACK-37" class="cta-button">
-                        <span>Comenzar Ahora →</span>
+                    <a href="https://buy.stripe.com/ELIGE-TU-LINK-AQUI-37" class="cta-button">
+                        <span data-i18n="cta1">Comenzar Ahora →</span>
                     </a>
                 </div>
 
                 <div class="pricing-card glass-card featured">
-                    <span class="badge">Recomendado</span>
-                    <h3>Pro Kit + AI Masterclass</h3>
+                    <span class="badge" data-i18n="badge-recommended">Recomendado</span>
+                    <h3 data-i18n="pack2-title">Pro Kit + AI Masterclass</h3>
                     <div class="price">€57 <span>€84</span></div>
                     <ul>
-                        <li>Todo el contenido del Pro Kit</li>
-                        <li>Masterclass exclusiva IA + Liquid (20min)</li>
-                        <li>Diseña EXACTAMENTE como imaginas</li>
-                        <li>Las mejores herramientas de IA reveladas</li>
-                        <li>Workflow profesional completo</li>
-                        <li>Personalización sin límites técnicos</li>
-                        <li>Ahorra €1000+ en diseñadores</li>
+                        <li data-i18n="pack2-feat1">Todo el contenido del Pro Kit</li>
+                        <li data-i18n="pack2-feat2">Masterclass exclusiva IA + Liquid (20min)</li>
+                        <li data-i18n="pack2-feat3">Diseña EXACTAMENTE como imaginas</li>
+                        <li data-i18n="pack2-feat4">Las mejores herramientas de IA reveladas</li>
+                        <li data-i18n="pack2-feat5">Workflow profesional completo</li>
+                        <li data-i18n="pack2-feat6">Personalización sin límites técnicos</li>
+                        <li data-i18n="pack2-feat7">Ahorra €1000+ en diseñadores</li>
                     </ul>
-                    <a href="https://buy.stripe.com/TU-LINK-PACK-57" class="cta-button">
-                        <span>Obtener Acceso Completo →</span>
+                    <a href="https://buy.stripe.com/ELIGE-TU-LINK-AQUI-57" class="cta-button">
+                        <span data-i18n="cta2">Obtener Acceso Completo →</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features">
+    <section class="section">
         <div class="container">
-            <h2 class="section-title">Ventajas Incomparables</h2>
+            <h2 class="section-title" data-i18n="features-title">Ventajas Incomparables</h2>
             <div class="features-grid">
                 <div class="feature-item glass-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Resultados Inmediatos</h3>
-                    <p>Códigos listos para implementar. Transforma tu tienda en minutos, no en semanas.</p>
+                    <h3 data-i18n="feat1-title">Resultados Inmediatos</h3>
+                    <p data-i18n="feat1-desc">Códigos listos para implementar. Transforma tu tienda en minutos, no en semanas.</p>
                 </div>
                 <div class="feature-item glass-card">
                     <div class="feature-icon">🎨</div>
-                    <h3>Libertad Creativa Total</h3>
-                    <p>Tu visión, sin compromisos. Crea exactamente lo que imaginas sin limitaciones técnicas.</p>
+                    <h3 data-i18n="feat2-title">Libertad Creativa Total</h3>
+                    <p data-i18n="feat2-desc">Tu visión, sin compromisos. Crea exactamente lo que imaginas sin limitaciones técnicas.</p>
                 </div>
                 <div class="feature-item glass-card">
                     <div class="feature-icon">🤖</div>
-                    <h3>Potenciado con IA</h3>
-                    <p>Domina las herramientas de IA más avanzadas para diseñar 10x más rápido que la competencia.</p>
+                    <h3 data-i18n="feat3-title">Potenciado con IA</h3>
+                    <p data-i18n="feat3-desc">Domina las herramientas de IA más avanzadas para diseñar 10x más rápido que la competencia.</p>
                 </div>
                 <div class="feature-item glass-card">
                     <div class="feature-icon">♾️</div>
-                    <h3>Escalabilidad Infinita</h3>
-                    <p>Evoluciona tu tienda sin depender de nadie. Cada cambio está en tus manos.</p>
+                    <h3 data-i18n="feat4-title">Escalabilidad Infinita</h3>
+                    <p data-i18n="feat4-desc">Evoluciona tu tienda sin depender de nadie. Cada cambio está en tus manos.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="faq">
+    <section class="section faq">
         <div class="container">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <h2 class="section-title" data-i18n="faq-title">Preguntas Frecuentes</h2>
             
             <div class="faq-item glass-card">
-                <h3>¿Necesito saber programar?</h3>
-                <p>Absolutamente no. El sistema está diseñado para emprendedores sin conocimientos técnicos. El tutorial te guía paso a paso, y con la Masterclass aprendes a usar IA para personalizar todo sin escribir código.</p>
+                <h3 data-i18n="faq1-q">¿Necesito saber programar?</h3>
+                <p data-i18n="faq1-a">Absolutamente no. El sistema está diseñado para emprendedores sin conocimientos técnicos. El tutorial te guía paso a paso, y con la Masterclass aprendes a usar IA para personalizar todo sin escribir código.</p>
             </div>
 
             <div class="faq-item glass-card">
-                <h3>¿Es compatible con mi theme actual?</h3>
-                <p>Sí, 100%. Los códigos Liquid funcionan con cualquier theme de Shopify. Te enseño la integración perfecta sin romper nada de tu tienda actual.</p>
+                <h3 data-i18n="faq2-q">¿Es compatible con mi theme actual?</h3>
+                <p data-i18n="faq2-a">Sí, 100%. Los códigos Liquid funcionan con cualquier theme de Shopify. Te enseño la integración perfecta sin romper nada de tu tienda actual.</p>
             </div>
 
             <div class="faq-item glass-card">
-                <h3>¿Qué aprendo en la Masterclass exactamente?</h3>
-                <p>En 20 minutos intensos descubres cómo crear y personalizar códigos Liquid usando IA, las herramientas exactas que uso, prompts profesionales, y el workflow completo para diseñar sin límites.</p>
+                <h3 data-i18n="faq3-q">¿Qué aprendo en la Masterclass exactamente?</h3>
+                <p data-i18n="faq3-a">En 20 minutos intensos descubres cómo crear y personalizar códigos Liquid usando IA, las herramientas exactas que uso, prompts profesionales, y el workflow completo para diseñar sin límites.</p>
             </div>
 
             <div class="faq-item glass-card">
-                <h3>¿Cuándo recibo el acceso?</h3>
-                <p>Instantáneamente. Tras el pago recibes un email con el link de descarga de todos los archivos, códigos, y acceso inmediato a la Masterclass.</p>
+                <h3 data-i18n="faq4-q">¿Cuándo recibo el acceso?</h3>
+                <p data-i18n="faq4-a">Instantáneamente. Tras el pago recibes un email con el link de descarga de todos los archivos, códigos, y acceso inmediato a la Masterclass.</p>
             </div>
 
             <div class="faq-item glass-card">
-                <h3>¿Las actualizaciones tienen costo adicional?</h3>
-                <p>Nunca. Todas las actualizaciones futuras, nuevos códigos y mejoras están incluidas de por vida sin pagar nada más.</p>
+                <h3 data-i18n="faq5-q">¿Las actualizaciones tienen costo adicional?</h3>
+                <p data-i18n="faq5-a">Nunca. Todas las actualizaciones futuras, nuevos códigos y mejoras están incluidas de por vida sin pagar nada más.</p>
             </div>
 
             <div class="faq-item glass-card">
-                <h3>¿Hay soporte disponible?</h3>
-                <p>Sí. Incluye soporte por email para cualquier duda. Si necesitas ayuda más personalizada, puedes agendar una sesión de 30 minutos después de tu compra.</p>
+                <h3 data-i18n="faq6-q">¿Hay soporte disponible?</h3>
+                <p data-i18n="faq6-a">Sí. Incluye soporte por email para cualquier duda. Si necesitas ayuda más personalizada, puedes agendar una sesión de 30 minutos después de tu compra.</p>
             </div>
         </div>
     </section>
 
-    <section class="final-cta">
+    <section class="section" style="text-align: center;">
         <div class="container">
-            <h2>¿Listo para Tomar Control Total de Tu Tienda?</h2>
-            <p style="margin-bottom: 40px; color: rgba(255, 255, 255, 0.7);">Únete a cientos de emprendedores que ya diseñan sin límites</p>
-            <a href="https://buy.stripe.com/TU-LINK-PACK-57" class="cta-button" style="max-width: 500px; margin: 0 auto; display: block;">
-                <span>Obtener Pro Kit + Masterclass Ahora</span>
+            <h2 class="section-title" data-i18n="final-title">¿Listo para Tomar Control Total de Tu Tienda?</h2>
+            <p style="margin-bottom: 40px; color: rgba(255, 255, 255, 0.7); font-size: clamp(16px, 2vw, 18px);" data-i18n="final-subtitle">Únete a cientos de emprendedores que ya diseñan sin límites</p>
+            <a href="https://buy.stripe.com/ELIGE-TU-LINK-AQUI-57" class="cta-button" style="max-width: 500px; margin: 0 auto; display: block;">
+                <span data-i18n="final-cta">Obtener Pro Kit + Masterclass Ahora</span>
             </a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Pro Kit for Shopify. Todos los derechos reservados.</p>
-            <p style="margin-top: 10px; font-size: 14px;">No estamos afiliados con Shopify Inc. Este es un producto de terceros compatible con Shopify.</p>
+            <p data-i18n="footer1">&copy; 2026 Pro Kit for Shopify. Todos los derechos reservados.</p>
+            <p style="margin-top: 10px;" data-i18n="footer2">No estamos afiliados con Shopify Inc. Este es un producto de terceros compatible con Shopify.</p>
         </div>
     </footer>
 
     <script>
-        // Protección básica
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
+        const translations = {
+            es: {
+                'hero-badge': '✨ El Futuro del E-commerce',
+                'hero-title': 'Diseña Tu Tienda Shopify<br>Sin Límites Ni Dependencias',
+                'hero-subtitle': 'Códigos Liquid profesionales + Masterclass IA exclusiva para crear la tienda de tus sueños con control total',
+                'comparison-title': 'La Inversión Más Inteligente',
+                'comp1-title': 'Diseñador Freelance',
+                'comp1-1': 'Semanas de espera',
+                'comp1-2': 'Sin acceso al código',
+                'comp1-3': 'Cada cambio cuesta más',
+                'comp1-4': 'Dependencia total',
+                'comp1-5': 'Sin aprendizaje',
+                'comp2-title': 'Theme Premium',
+                'comp2-1': 'Diseño genérico usado por miles',
+                'comp2-2': 'Personalización muy limitada',
+                'comp2-3': 'No aprendes nada útil',
+                'comp2-4': 'Actualizaciones rompen todo',
+                'comp2-5': 'Zero diferenciación',
+                'comp3-title': 'Agencia Digital',
+                'comp3-1': 'Completamente inaccesible',
+                'comp3-2': 'Meses de desarrollo',
+                'comp3-3': 'Contratos interminables',
+                'comp3-4': 'Pagos mensuales eternos',
+                'comp3-5': 'Reuniones sin fin',
+                'comp4-title': 'Pro Kit + Masterclass',
+                'comp4-1': 'Control absoluto del diseño',
+                'comp4-2': 'Personalización infinita con IA',
+                'comp4-3': 'Implementación en minutos',
+                'comp4-4': 'Pago único, tuyo para siempre',
+                'comp4-5': 'Aprende el sistema completo',
+                'pricing-title': 'Elige Tu Transformación',
+                'pack1-title': 'Pro Kit',
+                'pack1-feat1': 'Pack completo de códigos Liquid',
+                'pack1-feat2': 'Sections optimizadas para conversión',
+                'pack1-feat3': 'Tutorial paso a paso detallado',
+                'pack1-feat4': 'Personaliza tu tienda a tu gusto',
+                'pack1-feat5': 'Acceso y actualizaciones de por vida',
+                'pack1-feat6': 'Soporte por email incluido',
+                'cta1': 'Comenzar Ahora →',
+                'badge-recommended': 'Recomendado',
+                'pack2-title': 'Pro Kit + AI Masterclass',
+                'pack2-feat1': 'Todo el contenido del Pro Kit',
+                'pack2-feat2': 'Masterclass exclusiva IA + Liquid (20min)',
+                'pack2-feat3': 'Diseña EXACTAMENTE como imaginas',
+                'pack2-feat4': 'Las mejores herramientas de IA reveladas',
+                'pack2-feat5': 'Workflow profesional completo',
+                'pack2-feat6': 'Personalización sin límites técnicos',
+                'pack2-feat7': 'Ahorra €1000+ en diseñadores',
+                'cta2': 'Obtener Acceso Completo →',
+                'features-title': 'Ventajas Incomparables',
+                'feat1-title': 'Resultados Inmediatos',
+                'feat1-desc': 'Códigos listos para implementar. Transforma tu tienda en minutos, no en semanas.',
+                'feat2-title': 'Libertad Creativa Total',
+                'feat2-desc': 'Tu visión, sin compromisos. Crea exactamente lo que imaginas sin limitaciones técnicas.',
+                'feat3-title': 'Potenciado con IA',
+                'feat3-desc': 'Domina las herramientas de IA más avanzadas para diseñar 10x más rápido que la competencia.',
+                'feat4-title': 'Escalabilidad Infinita',
+                'feat4-desc': 'Evoluciona tu tienda sin depender de nadie. Cada cambio está en tus manos.',
+                'faq-title': 'Preguntas Frecuentes',
+                'faq1-q': '¿Necesito saber programar?',
+                'faq1-a': 'Absolutamente no. El sistema está diseñado para emprendedores sin conocimientos técnicos. El tutorial te guía paso a paso, y con la Masterclass aprendes a usar IA para personalizar todo sin escribir código.',
+                'faq2-q': '¿Es compatible con mi theme actual?',
+                'faq2-a': 'Sí, 100%. Los códigos Liquid funcionan con cualquier theme de Shopify. Te enseño la integración perfecta sin romper nada de tu tienda actual.',
+                'faq3-q': '¿Qué aprendo en la Masterclass exactamente?',
+                'faq3-a': 'En 20 minutos intensos descubres cómo crear y personalizar códigos Liquid usando IA, las herramientas exactas que uso, prompts profesionales, y el workflow completo para diseñar sin límites.',
+                'faq4-q': '¿Cuándo recibo el acceso?',
+                'faq4-a': 'Instantáneamente. Tras el pago recibes un email con el link de descarga de todos los archivos, códigos, y acceso inmediato a la Masterclass.',
+                'faq5-q': '¿Las actualizaciones tienen costo adicional?',
+                'faq5-a': 'Nunca. Todas las actualizaciones futuras, nuevos códigos y mejoras están incluidas de por vida sin pagar nada más.',
+                'faq6-q': '¿Hay soporte disponible?',
+                'faq6-a': 'Sí. Incluye soporte por email para cualquier duda. Si necesitas ayuda más personalizada, puedes agendar una sesión de 30 minutos después de tu compra.',
+                'final-title': '¿Listo para Tomar Control Total de Tu Tienda?',
+                'final-subtitle': 'Únete a cientos de emprendedores que ya diseñan sin límites',
+                'final-cta': 'Obtener Pro Kit + Masterclass Ahora',
+                'footer1': '© 2026 Pro Kit for Shopify. Todos los derechos reservados.',
+                'footer2': 'No estamos afiliados con Shopify Inc. Este es un producto de terceros compatible con Shopify.'
+            },
+            en: {
+                'hero-badge': '✨ The Future of E-commerce',
+                'hero-title': 'Design Your Shopify Store<br>Without Limits or Dependencies',
+                'hero-subtitle': 'Professional Liquid codes + Exclusive AI Masterclass to create your dream store with total control',
+                'comparison-title': 'The Smartest Investment',
+                'comp1-title': 'Freelance Designer',
+                'comp1-1': 'Weeks of waiting',
+                'comp1-2': 'No code access',
+                'comp1-3': 'Every change costs more',
+                'comp1-4': 'Total dependency',
+                'comp1-5': 'No learning',
+                'comp2-title': 'Premium Theme',
+                'comp2-1': 'Generic design used by thousands',
+                'comp2-2': 'Very limited customization',
+                'comp2-3': 'You learn nothing useful',
+                'comp2-4': 'Updates break everything',
+                'comp2-5': 'Zero differentiation',
+                'comp3-title': 'Digital Agency',
+                'comp3-1': 'Completely unaffordable',
+                'comp3-2': 'Months of development',
+                'comp3-3': 'Endless contracts',
+                'comp3-4': 'Eternal monthly payments',
+                'comp3-5': 'Never-ending meetings',
+                'comp4-title': 'Pro Kit + Masterclass',
+                'comp4-1': 'Absolute design control',
+                'comp4-2': 'Infinite AI customization',
+                'comp4-3': 'Implementation in minutes',
+                'comp4-4': 'One payment, yours forever',
+                'comp4-5': 'Learn the complete system',
+                'pricing-title': 'Choose Your Transformation',
+                'pack1-title': 'Pro Kit',
+                'pack1-feat1': 'Complete Liquid code pack',
+                'pack1-feat2': 'Conversion-optimized sections',
+                'pack1-feat3': 'Detailed step-by-step tutorial',
+                'pack1-feat4': 'Customize your store as you like',
+                'pack1-feat5': 'Lifetime access and updates',
+                'pack1-feat6': 'Email support included',
+                'cta1': 'Start Now →',
+                'badge-recommended': 'Recommended',
+                'pack2-title': 'Pro Kit + AI Masterclass',
+                'pack2-feat1': 'All Pro Kit content',
+                'pack2-feat2': 'Exclusive AI + Liquid Masterclass (20min)',
+                'pack2-feat3': 'Design EXACTLY as you imagine',
+                'pack2-feat4': 'Best AI tools revealed',
+                'pack2-feat5': 'Complete professional workflow',
+                'pack2-feat6': 'Unlimited technical customization',
+                'pack2-feat7': 'Save €1000+ on designers',
+                'cta2': 'Get Full Access →',
+                'features-title': 'Unmatched Advantages',
+                'feat1-title': 'Immediate Results',
+                'feat1-desc': 'Ready-to-implement codes. Transform your store in minutes, not weeks.',
+                'feat2-title': 'Total Creative Freedom',
+                'feat2-desc': 'Your vision, no compromises. Create exactly what you imagine without technical limitations.',
+                'feat3-title': 'AI Powered',
+                'feat3-desc': 'Master the most advanced AI tools to design 10x faster than the competition.',
+                'feat4-title': 'Infinite Scalability',
+                'feat4-desc': 'Evolve your store without depending on anyone. Every change is in your hands.',
+                'faq-title': 'Frequently Asked Questions',
+                'faq1-q': 'Do I need to know how to code?',
+                'faq1-a': 'Absolutely not. The system is designed for entrepreneurs without technical knowledge. The tutorial guides you step by step, and with the Masterclass you learn to use AI to customize everything without writing code.',
+                'faq2-q': 'Is it compatible with my current theme?',
+                'faq2-a': 'Yes, 100%. Liquid codes work with any Shopify theme. I teach you perfect integration without breaking anything in your current store.',
+                'faq3-q': 'What exactly do I learn in the Masterclass?',
+                'faq3-a': 'In 20 intense minutes you discover how to create and customize Liquid codes using AI, the exact tools I use, professional prompts, and the complete workflow to design without limits.',
+                'faq4-q': 'When do I receive access?',
+                'faq4-a': 'Instantly. After payment you receive an email with the download link for all files, codes, and immediate access to the Masterclass.',
+                'faq5-q': 'Do updates have additional costs?',
+                'faq5-a': 'Never. All future updates, new codes and improvements are included for life without paying anything more.',
+                'faq6-q': 'Is support available?',
+                'faq6-a': 'Yes. Includes email support for any questions. If you need more personalized help, you can schedule a 30-minute session after your purchase.',
+                'final-title': 'Ready to Take Total Control of Your Store?',
+                'final-subtitle': 'Join hundreds of entrepreneurs who already design without limits',
+                'final-cta': 'Get Pro Kit + Masterclass Now',
+                'footer1': '© 2026 Pro Kit for Shopify. All rights reserved.',
+                'footer2': 'We are not affiliated with Shopify Inc. This is a third-party product compatible with Shopify.'
+            }
+        };
+
+        let currentLang = 'es';
+
+        function translatePage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                translatePage(btn.dataset.lang);
+            });
         });
+
+        document.addEventListener('contextmenu', e => e.preventDefault());
         
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', e => {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || 
                 (e.ctrlKey && e.shiftKey && e.key === 'C') || (e.ctrlKey && e.key === 'U')) {
                 e.preventDefault();
             }
         });
 
-        // Smooth scroll para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-
-        // Prevenir inspección de elementos
-        setInterval(function() {
-            debugger;
-        }, 1000);
     </script>
 </body>
 </html>
