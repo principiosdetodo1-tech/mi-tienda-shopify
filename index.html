@@ -605,25 +605,6 @@
             to { transform: rotate(360deg); }
         }
 
-        .guarantee-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 25px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 12px;
-            margin-top: 20px;
-            font-size: 14px;
-            color: var(--success);
-            font-weight: 600;
-        }
-
-        .guarantee-badge::before {
-            content: '🛡️';
-            font-size: 20px;
-        }
-
         /* Features Grid */
         .features-grid {
             display: grid;
@@ -877,7 +858,6 @@
                     <button class="cta-button" onclick="checkout('basic')" id="btn-basic">
                         <span data-i18n="cta1">Buy Now - €37 →</span>
                     </button>
-                    <div class="guarantee-badge" data-i18n="guarantee">30-Day Money Back Guarantee</div>
                 </div>
 
                 <div class="pricing-card glass-card featured">
@@ -896,7 +876,6 @@
                     <button class="cta-button" onclick="checkout('featured')" id="btn-featured">
                         <span data-i18n="cta2">Get Full Access - €57 →</span>
                     </button>
-                    <div class="guarantee-badge" data-i18n="guarantee">30-Day Money Back Guarantee</div>
                 </div>
             </div>
         </div>
@@ -1026,7 +1005,7 @@
                 'instant': 'Acceso Inmediato',
                 'hero-badge': '✨ El Futuro del E-commerce',
                 'hero-title': 'Diseña Tu Tienda Shopify<br>Sin Límites',
-                'hero-subtitle': 'Códigos Liquid profesionales + Masterclass IA exclusiva para crear tu tienda de ensueño con control total',
+                'hero-subtitle': 'Códigos Liquid profesionales + Masterclass IA exclusiva para crear <span class="highlight">tu tienda de ensueño</span> con control total',
                 'hero-cta': 'Obtener Pro Kit + Masterclass →',
                 'customers': 'Clientes Felices',
                 'rating': 'Valoración Media',
@@ -1075,7 +1054,6 @@
                 'pack2-feat6': 'Personalización ilimitada',
                 'pack2-feat7': 'Ahorra €1000+ en diseñadores',
                 'cta2': 'Obtener Acceso Completo - €57 →',
-                'guarantee': 'Garantía de Devolución 30 Días',
                 'features-title': 'Ventajas Incomparables',
                 'feat1-title': 'Resultados Inmediatos',
                 'feat1-desc': 'Códigos listos para implementar. Transforma tu tienda en minutos, no en semanas.',
@@ -1109,7 +1087,7 @@
                 'instant': 'Instant Access',
                 'hero-badge': '✨ The Future of E-commerce',
                 'hero-title': 'Design Your Shopify Store<br>Without Limits',
-                'hero-subtitle': 'Professional Liquid codes + Exclusive AI Masterclass to create your dream store with total control',
+                'hero-subtitle': 'Professional Liquid codes + Exclusive AI Masterclass to create <span class="highlight">your dream store</span> with total control',
                 'hero-cta': 'Get Pro Kit + Masterclass →',
                 'customers': 'Happy Customers',
                 'rating': 'Average Rating',
@@ -1158,7 +1136,6 @@
                 'pack2-feat6': 'Unlimited customization',
                 'pack2-feat7': 'Save €1000+ on designers',
                 'cta2': 'Get Full Access - €57 →',
-                'guarantee': '30-Day Money Back Guarantee',
                 'features-title': 'Unmatched Advantages',
                 'feat1-title': 'Immediate Results',
                 'feat1-desc': 'Ready-to-implement codes. Transform your store in minutes, not weeks.',
@@ -1228,3 +1205,4 @@
     </script>
 </body>
 </html>
+
