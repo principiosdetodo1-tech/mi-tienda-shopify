@@ -692,6 +692,25 @@
             margin: 5px 0;
         }
 
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
         .payment-methods {
             display: flex;
             justify-content: center;
@@ -957,6 +976,11 @@
 
     <footer>
         <div class="container">
+            <div class="footer-links">
+                <a href="terminos.html" data-i18n="terms-link">Terms & Conditions</a>
+                <a href="privacidad.html" data-i18n="privacy-link">Privacy Policy</a>
+                <a href="reembolsos.html" data-i18n="refund-link">Refund Policy</a>
+            </div>
             <div class="payment-methods">
                 <div class="payment-method">💳 Visa</div>
                 <div class="payment-method">💳 Mastercard</div>
@@ -1079,6 +1103,9 @@
                 'final-title': '¿Listo para Tomar Control Total de Tu Tienda?',
                 'final-subtitle': 'Únete a cientos de emprendedores que ya diseñan sin límites',
                 'final-cta': 'Obtener Pro Kit + Masterclass Ahora',
+                'terms-link': 'Términos y Condiciones',
+                'privacy-link': 'Política de Privacidad',
+                'refund-link': 'Política de Reembolsos',
                 'footer1': '© 2026 Pro Kit for Shopify. Todos los derechos reservados.',
                 'footer2': 'No estamos afiliados con Shopify Inc. Este es un producto de terceros compatible.'
             },
@@ -1161,6 +1188,9 @@
                 'final-title': 'Ready to Take Total Control of Your Store?',
                 'final-subtitle': 'Join hundreds of entrepreneurs who already design without limits',
                 'final-cta': 'Get Pro Kit + Masterclass Now',
+                'terms-link': 'Terms & Conditions',
+                'privacy-link': 'Privacy Policy',
+                'refund-link': 'Refund Policy',
                 'footer1': '© 2026 Pro Kit for Shopify. All rights reserved.',
                 'footer2': 'Not affiliated with Shopify Inc. This is a third-party compatible product.'
             }
@@ -1205,4 +1235,3 @@
     </script>
 </body>
 </html>
-
